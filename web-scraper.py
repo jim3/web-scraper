@@ -1,6 +1,6 @@
-# Web Scraper - Extracts phone numbers and email addresses from a given URL
-# Usage: python web-scraper.py <url>
-
+# =========================================
+# Phone & Email Scraper
+# =========================================
 import sys
 import pyperclip
 import re
@@ -22,6 +22,7 @@ def phoneScraper(url):
     except pyperclip.PyperclipException as e:
         print(f"clipboard error: {str(e)}")
         return
+    # Extract phone numbers
     phoneRegex = re.compile(r"\d{3}-\d{3}-\d{4}")
     phoneNumbers = phoneRegex.findall(content)
     return phoneNumbers, None
@@ -42,6 +43,7 @@ def emailScraper(url):
     except pyperclip.PyperclipException as e:
         print(f"clipboard error: {str(e)}")
         return
+        # Extract email addresses
     emailRegex = re.compile(r"[\w]+@[\w]+\.[\w]+")
     emailAddresses = emailRegex.findall(content)
     return emailAddresses, None
