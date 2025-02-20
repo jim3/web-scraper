@@ -1,4 +1,4 @@
-# Web Scraper
+# Web Scraper - Extracts phone numbers and email addresses from a given URL
 # Usage: python web-scraper.py <url>
 
 import sys
