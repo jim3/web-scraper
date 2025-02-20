@@ -1,6 +1,6 @@
-# =========================================
 # Web Scraper
-# =========================================
+# Usage: python web-scraper.py <url>
+
 import sys
 import pyperclip
 import re
