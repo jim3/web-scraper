@@ -1,5 +1,5 @@
 # =========================================
-# Phone & Email Scraper
+# Web Scraper
 # =========================================
 import sys
 import pyperclip
