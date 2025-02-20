@@ -9,20 +9,19 @@ import requests
 
 def phoneScraper(url):
     try:
-        r = requests.get(url)  # make a GET request with the argument as the URL
+        r = requests.get(url)
         if r.status_code == 200:
-            body = r.text  # read in the entire body
-            pyperclip.copy(body)  # copy the body to the clipboard
+            body = r.text
+            pyperclip.copy(body)
         else:
             print(f"Error: {r.status_code}")
-        content = pyperclip.paste()  # Read from clipboard
+        content = pyperclip.paste()
         if not content or content.isspace():
             print("Error: Clipboard is empty")
             return
     except pyperclip.PyperclipException as e:
         print(f"clipboard error: {str(e)}")
         return
-    # Extract phone numbers
     phoneRegex = re.compile(r"\d{3}-\d{3}-\d{4}")
     phoneNumbers = phoneRegex.findall(content)
     return phoneNumbers, None
@@ -43,7 +42,6 @@ def emailScraper(url):
     except pyperclip.PyperclipException as e:
         print(f"clipboard error: {str(e)}")
         return
-        # Extract phone numbers
     emailRegex = re.compile(r"[\w]+@[\w]+\.[\w]+")
     emailAddresses = emailRegex.findall(content)
     return emailAddresses, None
